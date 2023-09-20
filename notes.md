@@ -36,5 +36,10 @@
 # To-do
 
 - [ ] What is emmet ?
-- [ ] What is crossorigin in cdn ?
+- [ ] Difference between a Library and Framework?
+- [ ] What is CDN? Why do we use it?
+- [ ] What is crossorigin in script tag ?
 - [ ] What is difference between async and defer ?
+- [ ] Why is React known as React?
+- [ ] What is diference between React and ReactDOM
+- [ ] What is difference between react.development.js and react.production.js files via CDN?
