@@ -18,7 +18,7 @@
   ```
 
 - React.createElement returns a javascript object.
-- The first argument is the html tag, second is the props object that we want to pass to react, third is the children.
+- The first argument is the html tag, second is the props (object) that we want to pass to react, third is the children.
 - Root.render converts javascript object to DOM structure.
 - render method overrides the root in html.
 - Nested Structure in React.
