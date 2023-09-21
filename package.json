@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/taraksh01/petPooja/issues"
   },
-  "homepage": "https://github.com/taraksh01/petPooja#readme"
+  "homepage": "https://github.com/taraksh01/petPooja#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
 }
