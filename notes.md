@@ -18,6 +18,7 @@
   ```
 
 - React.createElement returns a javascript object.
+- The first argument is the html tag, second is the props object that we want to pass to react, third is the children.
 - Root.render converts javascript object to DOM structure.
 - render method overrides the root in html.
 - Nested Structure in React.
@@ -43,3 +44,27 @@
 - [ ] Why is React known as React?
 - [ ] What is diference between React and ReactDOM
 - [ ] What is difference between react.development.js and react.production.js files via CDN?
+
+Why use NPM?
+
+> Our react app is powered by a lot of packages (minifiers, bundlers, optimizeers) and for that we need helper packages, that comes with npm.
+
+To use import and export inside our js files, we need to add type="module" in the script tag.
+
+What parcel is doing?
+
+- **HMR** - Hot module replacement
+- File watcher algorithm - written is c++
+- **Bundling**
+- **Minification**
+- **Cleaning** our code
+- Manages **dev** and **production** builds
+- Superfast build algorithm
+- **Image optimization**
+- **Caching** while developing
+- Compresses files
+- Compatibility with older browsers
+- **HTTPS** for development
+- Manages port number
+
+> Parcel has **Transitive dependencies** on other packages.
