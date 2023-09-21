@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 // Creating a nested complex html structure
 const element = React.createElement("div", { id: "element" }, [
   React.createElement("div", { id: "firstChild" }, "first child"),
@@ -5,7 +8,6 @@ const element = React.createElement("div", { id: "element" }, [
 ]);
 
 const heading = React.createElement("h1", {}, "petPooja using react");
-console.log(heading);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(element);
