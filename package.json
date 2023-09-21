@@ -1,0 +1,23 @@
+{
+  "name": "petpooja",
+  "version": "1.0.0",
+  "description": "This is a food ordering app.",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraksh01/petPooja.git"
+  },
+  "keywords": [
+    "petpooja",
+    "taraksh01"
+  ],
+  "author": "Tarak Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taraksh01/petPooja/issues"
+  },
+  "homepage": "https://github.com/taraksh01/petPooja#readme"
+}
