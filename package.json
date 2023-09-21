@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/taraksh01/petPooja#readme",
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
