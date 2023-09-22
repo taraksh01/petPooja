@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/taraksh01/petPooja#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.9.3",
     "postcss": "^8.4.30",
     "process": "^0.11.10",
