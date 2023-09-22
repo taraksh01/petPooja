@@ -2,8 +2,9 @@
   "name": "petpooja",
   "version": "1.0.0",
   "description": "This is a food ordering app.",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
