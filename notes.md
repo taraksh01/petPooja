@@ -89,3 +89,18 @@ a(JSX)==>b("React.creteElement()")==>c(JS Object)==>d("HTML (DOM)")
 Why JSX?
 
 > for better readability, maintainability of the code.
+
+- to write javascript inside jsx we just have to use curly braces.
+
+  ```
+  {javascript inside jsx}
+  ```
+
+## React Components
+
+- Component name should start with a capital letter.
+
+1. **Functional Component** : A new way to create react components. Functional components are nothing but a **javascript** function that returns jsx.
+2. **Class Based Component** : Older way of writing react components. It is a **javascript** class that returns jsx.
+
+**Component Composition** : Component inside another component.
