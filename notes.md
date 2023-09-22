@@ -68,3 +68,24 @@ What parcel is doing?
 - Manages port number
 
 > Parcel has **Transitive dependencies** on other packages.
+
+**Polyfills** are the code that are replacement of the newer versions of code.
+
+Who converts our newer versions of code to older version?
+
+> Bable
+
+## JSX
+
+- jsx is a html like syntax, but it is not html.
+
+```mermaid
+graph LR
+a(JSX)==>b("React.creteElement()")==>c(JS Object)==>d("HTML (DOM)")
+```
+
+- babel converts JSX into React.createElement()
+
+Why JSX?
+
+> for better readability, maintainability of the code.
