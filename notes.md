@@ -104,3 +104,21 @@ Why JSX?
 2. **Class Based Component** : Older way of writing react components. It is a **javascript** class that returns jsx.
 
 **Component Composition** : Component inside another component.
+
+- Component can return only one jsx element.
+- React.Fragment is a component which is exported by react.
+- React.Fragment does not add any additional element on the page.
+
+  ```javascript
+  <React.Fragment>
+    <h1>one jsx</h1>
+    <h2>another jsx</h2>
+  </React.Fragment>
+
+  or
+
+  <>
+    <h1>one jsx</h1>
+    <h2>another jsx</h2>
+  </>
+  ```
