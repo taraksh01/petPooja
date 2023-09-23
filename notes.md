@@ -122,3 +122,46 @@ Why JSX?
     <h2>another jsx</h2>
   </>
   ```
+
+- **props**: Data passed to React components.
+- Each child should have a unique key.
+- **Vitrual Dom** is the representation of actual DOM structure.
+
+```mermaid
+graph TD
+a(root)
+b(head)
+c(body)
+d(Title)
+e(header)
+f(footer)
+g(main)
+h(("div 1"))
+i(("div 2"))
+j(("div 3"))
+k(("div 4"))
+
+a==>b
+b==>d
+
+a==>c
+c==>e
+c==>f
+c===>g
+g-->h
+g-->i
+g-->j
+g-->k
+
+
+
+```
+
+<center style="padding: 21px; color:orange;" >
+Virtual dom representation</center>
+
+Reconciliation is an algorithm that finds the difference between one virtual dom to another virtual dom and determines the changes from the previous one.
+
+Why keys for each child?
+
+> When a new node is added to the DOM or removed from the DOM react reonceciliation finds the difference between previous and current virtual dom to get the changes in the virtual dom. If we don't pass the key to the child, react will have to rerender all the children that can slow down our application.
