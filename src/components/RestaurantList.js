@@ -1,8 +1,10 @@
+import Restaurant from "./Restaurant";
+
 const RestaurantList = () => {
   return (
-    <>
-      <h1 className="text-center">RestaurantList</h1>
-    </>
+    <div className="flex flex-wrap justify-center gap-4 m-2 w-10/12 mx-auto">
+      <Restaurant />
+    </div>
   );
 };
 
