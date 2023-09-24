@@ -165,3 +165,21 @@ Reconciliation is an algorithm that finds the difference between one virtual dom
 Why keys for each child?
 
 > When a new node is added to the DOM or removed from the DOM react reonceciliation finds the difference between previous and current virtual dom to get the changes in the virtual dom. If we don't pass the key to the child, react will have to rerender all the children that can slow down our application.
+
+## React Hook
+
+- Hooks are just utility functions.
+
+  ### useState()
+
+  - useState is used to create a new state local state variable.
+  - useState returns an array, that contains a state variable and a function that can modify the state variable.
+  - useState takes a value and set is as initial value for the state variable.
+
+  ```javascript
+  const [variableName, setVariableName] = useState(initialStateValue);
+  ```
+
+  Why useState()?
+
+  > React does not keep track of the local variables. So if we create a variable and change its value, react will not know that the variable value has changed. One the other hand React keeps track of the state variables and rerender the component each time the state variable changes.
