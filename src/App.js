@@ -16,7 +16,13 @@ const App = () => {
   }
   return (
     <>
-      <Header searchText={searchText} handleSearch={handleSearch} />
+      <Header
+        searchText={searchText}
+        handleSearch={handleSearch}
+        filteredRestaurants={filteredRestaurants}
+        setFilteredRestaurants={setFilteredRestaurants}
+        allRestaurants={allRestaurants}
+      />
       <RestaurantList restaurants={filteredRestaurants} />
     </>
   );
