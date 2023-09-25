@@ -1,4 +1,10 @@
-const Search = ({ searchText, handleSearch }) => {
+const Search = ({
+  searchText,
+  handleSearch,
+  filteredRestaurants,
+  setFilteredRestaurants,
+  allRestaurants,
+}) => {
   return (
     <div className="flex gap-4 font-normal">
       <input
@@ -13,7 +19,12 @@ const Search = ({ searchText, handleSearch }) => {
       <button
         className="text-xl flex justify-center items-center border-2 border-gray-500  rounded-lg px-3 "
         type="submit"
-        onClick={() => console.log(searchText)}
+        onClick={() => {
+          let newRestaurants = allRestaurants?.filter((res) =>
+            res?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+          );
+          setFilteredRestaurants(newRestaurants);
+        }}
       >
         Search
       </button>
