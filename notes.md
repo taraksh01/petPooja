@@ -183,3 +183,11 @@ Why keys for each child?
   Why useState()?
 
   > React does not keep track of the local variables. So if we create a variable and change its value, react will not know that the variable value has changed. One the other hand React keeps track of the state variables and rerender the component each time the state variable changes.
+
+## Monolith Architecture
+
+All the features offered by the aap are in the same big project. Even for a small change in one feature of the app, we have to build the deploy the whole application again.
+
+## Microservices architecture (Single responsibility)
+
+All the features offered by the app can have separate microservices and can be used independently. Even if we change some feature in a microservice, we just have to deploy that microservice. This made the whole application easier to maintain and test.
