@@ -184,6 +184,25 @@ Why keys for each child?
 
   > React does not keep track of the local variables. So if we create a variable and change its value, react will not know that the variable value has changed. One the other hand React keeps track of the state variables and rerender the component each time the state variable changes.
 
+  ### useEffect()
+
+  - useEffect is a hook that has two parameters first a callback function and second is a dependency array.
+  - useEffect is called depending on the dependency array value.
+
+  ```javascript
+  // If we pass a dependency array, The component will be rendered every time the dependency array changes.
+  useEffect(() => {
+    callbackFunction();
+  }, [dependencyArray]);
+  ```
+
+  ```javascript
+  // If we pass an empty array, the component will be rendered only once after the initial render has finished.
+  useEffect(() => {
+    callbackFunction();
+  }, []);
+  ```
+
 ## Monolith Architecture
 
 All the features offered by the aap are in the same big project. Even for a small change in one feature of the app, we have to build the deploy the whole application again.
