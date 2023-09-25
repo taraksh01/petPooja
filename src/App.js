@@ -1,19 +1,35 @@
-// import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import RestaurantList from "./components/RestaurantList";
-import { useState } from "react";
-import { restaurant } from "./constants";
+import { useEffect, useState } from "react";
+import { SWIGGY_RESTAURANT_API_URL } from "./constants";
 
 const App = () => {
   const [searchText, setSearchText] = useState("");
-  const [allRestaurants, setAllRestaurants] = useState(restaurant);
-  const [filteredRestaurants, setFilteredRestaurants] =
-    useState(allRestaurants);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  const fetchRestaurants = async () => {
+    const data = await fetch(SWIGGY_RESTAURANT_API_URL);
+    const json = await data?.json();
+
+    setAllRestaurants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+
+    setFilteredRestaurants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   function handleSearch(newSearchText) {
     setSearchText(newSearchText);
   }
+
   return (
     <>
       <Header
