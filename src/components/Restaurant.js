@@ -11,7 +11,6 @@ const Restaurant = ({ info }) => {
           className="w-full rounded-2xl p-0 h-full"
         />
       </div>
-      {console.log(info)}
       <div className="pl-2">
         <h2 className="text-lg py-1 font-normal">{info?.name}</h2>
         <p className="font-light text-gray-600">{info?.avgRatingString}</p>
