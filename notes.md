@@ -203,6 +203,10 @@ Why keys for each child?
   }, []);
   ```
 
+  Why useEffect()?
+
+  > When we want our component to rerender after the initial render has finished, we use useEffect.
+
 ## Monolith Architecture
 
 All the features offered by the aap are in the same big project. Even for a small change in one feature of the app, we have to build the deploy the whole application again.
