@@ -190,17 +190,27 @@ Why keys for each child?
   - useEffect is called depending on the dependency array value.
 
   ```javascript
-  // If we pass a dependency array, The component will be rendered every time the dependency array changes.
+  // If we pass a dependency array, useEffect()) will be called every time the dependency array changes.
+
   useEffect(() => {
     callbackFunction();
   }, [dependencyArray]);
   ```
 
   ```javascript
-  // If we pass an empty array, the component will be rendered only once after the initial render has finished.
+  // If we pass an empty array, useEffect() will be called only once after the initial render has finished.
+
   useEffect(() => {
     callbackFunction();
   }, []);
+  ```
+
+  ```javascript
+  // If we do not pass a dependency array, useEffect() will be called after every render.
+
+  useEffect(() => {
+    callbackFunction();
+  });
   ```
 
   Why useEffect()?
