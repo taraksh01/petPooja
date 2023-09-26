@@ -266,3 +266,15 @@ const App = ()=>{
   <Link to="/about">About</Link>
 }
 ```
+
+5.**Outlet** : Outlet is a React component provided by react-router-dom. It wil be filled by the path configuration.
+
+```javascript
+import { Outlet } from "react-router-dom";
+
+const App = () => {
+  <Outlet />;
+};
+
+// Outlet will be replaced by the component refering to the path configuration.
+```
