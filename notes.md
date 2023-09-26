@@ -224,3 +224,33 @@ All the features offered by the aap are in the same big project. Even for a smal
 ## Microservices architecture (Single responsibility)
 
 All the features offered by the app can have separate microservices and can be used independently. Even if we change some feature in a microservice, we just have to deploy that microservice. This made the whole application easier to maintain and test.
+
+# Routing
+
+1.**createBrowserRounter** : createBrowserRounter comes from react-router-dom. To use this we have to create our configuration for the path. createBrowserRounter takes an array of objects. Each object has a path, element and an errorElement. The errorElement loads the error page.
+
+```javascript
+import { createBrowserRounter } from "react-router-dom";
+
+const appConfig = createBrowserRounter([
+  { path: "/", element: <App />, errorElement: <Error /> },
+  { path: "/about", element: <About />, errorElement: <Error /> },
+  { path: "/contact", element: <Contact />, errorElement: <Error /> },
+]);
+```
+
+2.**RouterProvider** : RouterProvider also comes from react-router-dom. We render RouterProvider to our root so that we can access the elements depending on the path of the url.
+
+```javascript
+import { RouterProvider } from "react-router-dom";
+
+root.render(<RouterProvider router={appConfig} />);
+```
+
+3.**useRouteError** : useRouteError is a hook provided by react-router-dom. This gives us the details of the error.
+
+```javascript
+import { useRouteError } from "react-router-dom";
+
+const error = useRouteError();
+```
