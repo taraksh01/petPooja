@@ -4,6 +4,7 @@ import RestaurantList from "./components/RestaurantList";
 import ShimmerRestaurantList from "./components/ShimmerRestaurantList";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Error from "./components/Error";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SWIGGY_RESTAURANT_API_URL } from "./constants";
@@ -53,9 +54,9 @@ const App = () => {
 };
 
 const appConfig = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: "/about", element: <About /> },
-  { path: "/contact", element: <Contact /> },
+  { path: "/", element: <App />, errorElement: <Error /> },
+  { path: "/about", element: <About />, errorElement: <Error /> },
+  { path: "/contact", element: <Contact />, errorElement: <Error /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
