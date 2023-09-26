@@ -227,17 +227,27 @@ All the features offered by the app can have separate microservices and can be u
 
 # Routing
 
-1.**createBrowserRounter** : createBrowserRounter comes from react-router-dom. To use this we have to create our configuration for the path. createBrowserRounter takes an array of objects. Each object has a path, element and an errorElement. The errorElement loads the error page.
+1.**createBrowserRounter** : createBrowserRounter comes from react-router-dom. To use this we have to create our configuration for the path. createBrowserRounter takes an array of objects. Each object has a path, element, an errorElement (optional) and children array(optional for nested routing). The errorElement loads the error page.
 
 ```javascript
 import { createBrowserRounter } from "react-router-dom";
 
 const appConfig = createBrowserRounter([
-  { path: "/", element: <App />, errorElement: <Error /> },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      { path: "/", element: <RestaurantCards /> },
+      { path: "/restaurant/:id", element: <RestaurantDetails /> },
+    ],
+  },
   { path: "/about", element: <About />, errorElement: <Error /> },
   { path: "/contact", element: <Contact />, errorElement: <Error /> },
 ]);
 ```
+
+**Note** : To use dynamic routing, use use :param in the url.
 
 2.**RouterProvider** : RouterProvider also comes from react-router-dom. We render RouterProvider to our root so that we can access the elements depending on the path of the url.
 
@@ -277,4 +287,12 @@ const App = () => {
 };
 
 // Outlet will be replaced by the component refering to the path configuration.
+```
+
+6.**useParams** : useParams is a hook provided by react-router-dom. This returns the dynamic path url from browser tab.
+
+```javascript
+import { useParams } from "react-router-dom";
+
+const params = useParams();
 ```
