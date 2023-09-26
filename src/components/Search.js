@@ -6,7 +6,7 @@ const Search = ({
   allRestaurants,
 }) => {
   return (
-    <div className="flex gap-4 font-normal">
+    <div className="flex gap-4 font-normal m-4">
       <input
         className="outline-none bg-transparent border-b-gray-600 border-b px-1 text-xl w-56 "
         type="text"
