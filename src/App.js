@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import RestaurantOverview from "./components/RestaurantOverview";
+import RestaurantMenuDetails from "./components/RestaurantMenuDetails";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -26,6 +27,7 @@ const appConfig = createBrowserRouter([
       { path: "/", element: <RestaurantOverview />, errorElement: <Error /> },
       { path: "/about", element: <About />, errorElement: <Error /> },
       { path: "/contact", element: <Contact />, errorElement: <Error /> },
+      { path: "/restaurant/:id", element: <RestaurantMenuDetails /> },
     ],
   },
 ]);
