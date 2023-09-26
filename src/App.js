@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import RestaurantList from "./components/RestaurantList";
 import ShimmerRestaurantList from "./components/ShimmerRestaurantList";
-import NoSearchResult from "./components/NoSearchResult";
 import { useEffect, useState } from "react";
 import { SWIGGY_RESTAURANT_API_URL } from "./constants";
 
@@ -46,7 +45,6 @@ const App = () => {
       ) : (
         <RestaurantList restaurants={filteredRestaurants} />
       )}
-      {filteredRestaurants?.length == 0 && <NoSearchResult />}
     </>
   );
 };
