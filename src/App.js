@@ -5,22 +5,29 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <>
       <Header />
-      <RestaurantOverview />
+      <Outlet />
       <Footer />
     </>
   );
 };
 
 const appConfig = createBrowserRouter([
-  { path: "/", element: <App />, errorElement: <Error /> },
-  { path: "/about", element: <About />, errorElement: <Error /> },
-  { path: "/contact", element: <Contact />, errorElement: <Error /> },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      { path: "/", element: <RestaurantOverview />, errorElement: <Error /> },
+      { path: "/about", element: <About />, errorElement: <Error /> },
+      { path: "/contact", element: <Contact />, errorElement: <Error /> },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
