@@ -254,3 +254,15 @@ import { useRouteError } from "react-router-dom";
 
 const error = useRouteError();
 ```
+
+4.**Link** : Provided by react-router-dom to go to certain routes. It is same as anchor tag in html but it does not reload the page.
+
+```javascript
+import { Link } from "react-router-dom";
+
+const App = ()=>{
+  <Link to="/">App</Link>
+  <Link to="/contact">Contact</Link>
+  <Link to="/about">About</Link>
+}
+```
