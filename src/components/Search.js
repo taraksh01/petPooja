@@ -1,7 +1,8 @@
+import { filterData } from "../utils/helper";
+
 const Search = ({
   searchText,
   handleSearch,
-  filteredRestaurants,
   setFilteredRestaurants,
   allRestaurants,
 }) => {
@@ -20,9 +21,7 @@ const Search = ({
         className="text-xl flex justify-center items-center border-2 border-gray-500  rounded-lg px-3 "
         type="submit"
         onClick={() => {
-          let newRestaurants = allRestaurants?.filter((res) =>
-            res?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-          );
+          const newRestaurants = filterData(searchText, allRestaurants);
           setFilteredRestaurants(newRestaurants);
         }}
       >
