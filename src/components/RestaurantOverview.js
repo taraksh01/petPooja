@@ -3,6 +3,7 @@ import ShimmerRestaurantList from "./ShimmerRestaurantList";
 import Search from "./Search";
 import { useEffect, useState } from "react";
 import { SWIGGY_RESTAURANT_API_URL } from "../constants";
+import useOnline from "../utils/useOnline";
 
 const RestaurantOverview = () => {
   const [searchText, setSearchText] = useState("");
@@ -29,6 +30,16 @@ const RestaurantOverview = () => {
   const handleSearch = (newSearchText) => {
     setSearchText(newSearchText);
   };
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return (
+      <h1 className="flex justify-center items-center h-[80vh] text-5xl">
+        Check your internet connection
+      </h1>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center gap-5">
