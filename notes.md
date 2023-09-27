@@ -166,6 +166,72 @@ Why keys for each child?
 
 > When a new node is added to the DOM or removed from the DOM react reonceciliation finds the difference between previous and current virtual dom to get the changes in the virtual dom. If we don't pass the key to the child, react will have to rerender all the children that can slow down our application.
 
+## Class Based Components
+
+- MyComponent extending the React.Component to inherit functionality from React.Component. It also let React know that we are trying to create a new component.
+- render() is the only mandatory method to create a class based component.
+- Every thing is initialized in constructor
+
+## React Lifecycle
+
+1. First constructor() is called then render() is called.
+2. componentDidMount() is called after the component is rendered.
+
+```javascript
+import React from "react";
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { count: 0, userCount: 0 };
+    console.log("constructor is called at the very beginning of the component");
+  }
+
+  conponentDidMount() {
+    console.log("componentDidMount will be called after the initial render");
+  }
+
+  componentDidUpdate() {
+    console.log(
+      "componentDidUpdate will be called after the componentDidMount and the render() method is called"
+    );
+  }
+
+  componentwillUnmount() {
+    console.log(
+      "componentWillUnmount will be called just before the component will be destroyed"
+    );
+  }
+
+  render() {
+    const { count, userCount } = this.state;
+    console.log("render is called just after constructor");
+    return (
+      <div>
+        <h1>My Component</h1>
+        <p> {this.props.name}</p>
+        <p> {count}</p>
+        <p> {userCount}</p>
+        <button
+          onClick={() => {
+            this.setState({ count: 1, userCount: 1 });
+          }}
+        >
+          Increment
+        </button>
+      </div>
+    );
+  }
+}
+```
+
+Two phases of react lifecycle.
+
+1. render phase
+2. commit phase
+3. ![React Lifecycle method](https://github.com/wojtekmaj/react-lifecycle-methods-diagram/blob/main/public/ogimage.png)
+
 ## React Hook
 
 - Hooks are just utility functions.
