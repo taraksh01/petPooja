@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { SWIGGY_RESTAURANT_Details_URL } from "../constants";
+import useRestaurantMenuDetails from "../utils/useRestaurantMenuDetails";
 
 const RestaurantMenuDetails = () => {
   const { id } = useParams();
-  const [restaurantDetails, setRestaurantDetails] = useState([]);
 
-  useEffect(() => {
-    fetchRestaurantDetails();
-  }, []);
-
-  const fetchRestaurantDetails = async () => {
-    const data = await fetch(SWIGGY_RESTAURANT_Details_URL + id);
-    const json = await data?.json();
-    console.log(json?.data?.cards);
-    setRestaurantDetails(json?.data?.cards);
-  };
+  const restaurantDetails = useRestaurantMenuDetails(id);
 
   if (restaurantDetails.length == 0) return;
 
