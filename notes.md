@@ -362,3 +362,31 @@ import { useParams } from "react-router-dom";
 
 const params = useParams();
 ```
+
+# Lazy Loading
+
+Also calldd **Chunking**, **On Demand Loading**, **Code Splitting**, and **Dynamic Bundling**.
+
+- we lazy load using lazy() function provided by react.
+- lazy() takes a function that import the component we want to lazy load.
+- This import is different from the javascript import statement.
+- When we lazy load a component react will suspend it as we don't have code yet.
+- To avoid this situation we can wrap the component in Suspense (provided by react).
+- Suspense also takes an optional fallback prop. Fallback can have any piece of jsx.
+
+```javascript
+import { lazy, Suspense } from "raect";
+
+const lazyComponent = lazy(() => import("path of the component"));
+
+appConfig = createBrowserRouter([
+  {
+    path: "/lazy",
+    element: (
+      <Suspense fallback={<Shimmer />}>
+        <lazyComponent />
+      </Suspense>
+    ),
+  },
+]);
+```
