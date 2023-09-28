@@ -400,3 +400,67 @@ Why props drilling is not a good choice to share data between components?
 - While passing data, data goes through lots of different components that may not need this data.
 
 - When we update the data, all our components will have to render unnecessarily.
+
+# Context
+
+When we need our data all across aur app, we store the data in a central file. **Redux store** does the same thing.
+
+Using context, we don't have to pass props to all the components. We just store the context in a file and use it whenever we need the context.
+
+**Context is like useState for the whole application.**
+
+```javascript
+import { createContext } from "react";
+
+const UserContext = createContext({
+  user: {
+    name: "Test user",
+    email: "test@example.com",
+  },
+});
+
+export default UserContext;
+```
+
+For Functional Components
+
+```javascript
+import { useContext } from "react";
+import UserContext from "path";
+
+const { user } = useContext(UserContext);
+
+// Now we can use user in our app.
+```
+
+For Class based Components
+
+```javascript
+import UserContext from "path";
+
+<UserContext.Consumer>
+  {(valueOfUserContext) => {
+    console.log(valueOfUserContext);
+  }}
+</UserContext.Consumer>;
+```
+
+What if we want to modify the context or use it for a specific component only?
+
+```javascript
+import UserContext from "path";
+
+
+// Parent component
+const [user, setUser] = useState({name:"Real User", email: "realuser@example.com", description: "description", password: "password"})
+<>
+  <UserContext.Provider value={user}>
+    <ComponentOne />
+    <ComponentTwo />
+    <ComponentThree />
+  </UserContext.Provider>;
+  <ComponentFour />
+</>
+```
+
+Here ComponentFour will get the value of UserContext's old value. But all the components inside UserContext.Provider will have updated value for user.
