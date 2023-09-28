@@ -390,3 +390,13 @@ appConfig = createBrowserRouter([
   },
 ]);
 ```
+
+# Props drilling
+
+When we have data in our parent component and we need this data in the child component (2, 3) layers down, we pass the props to child then again child until we reched the destination layer. This is known as the **props drilling**.
+
+Why props drilling is not a good choice to share data between components?
+
+- While passing data, data goes through lots of different components that may not need this data.
+
+- When we update the data, all our components will have to render unnecessarily.
