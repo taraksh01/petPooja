@@ -7,6 +7,8 @@ import Error from "./components/Error";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { Suspense, lazy, useState } from "react";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -16,13 +18,13 @@ const App = () => {
     email: "real@example.com",
   });
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider value={{ user }}>
         <Header />
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
