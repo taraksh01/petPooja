@@ -464,3 +464,75 @@ const [user, setUser] = useState({name:"Real User", email: "realuser@example.com
 ```
 
 Here ComponentFour will get the value of UserContext's old value. But all the components inside UserContext.Provider will have updated value for user.
+
+# Redux and Redux store
+
+- We uses redux to manage our data layer.
+- When our application grows, It becomes difficult to manage all the context components.
+- It is complex to setup.
+- It has huge learning curve.
+- Redux store is a big object.
+- We will have single store to hold all the context components.
+- We can create slices in the store (i.e. logical separation of our store).
+- Components can't directly modify the store.
+- Components dispatches an action and that action will call a function (Reducer) and that function (Reducer) will modify the store.
+- **When we click on the button, it dispatces an action that calls the reducer function that updates the slice of the store.**
+- We use selector (subscribe) to read data from the store.
+
+- @reduxjs/toolkit is the core library that maintains the store.
+- react-redux is the bridge between react and redux.
+
+1. Create a store
+
+```javascript
+import { configureStore } from "@reduxjs/toolkit";
+import cartSlice from "path";
+
+const store = configureStore({
+  reducer: {
+    cart: cartSlice,
+  },
+});
+
+export default store;
+```
+
+2. Provider provides the store to our application. We can choose where to pass the store, we can pass the store to whole app or to just few components.
+
+```javascript
+import { Provider } from "react-redux";
+import store from "path";
+
+// parentcomponent
+<Provider store={store}>
+  <App />
+</Provider>;
+```
+
+3. Creating a slice
+
+```javascript
+import { createSlice } from "@reduxjs/toolkit";
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: { items: [] },
+  reducers: {
+    addItems: (state, action) => {
+      state.items.push(action.payload);
+    },
+    removeCart: (state, action) => {
+      state.items.splice(state.items.indexOf(action.payload), 1);
+    },
+    clearCart: (state) => {
+      state.items = [];
+    },
+  },
+});
+
+export const { addItems, removeCart, clearCart } = cartSlice.actions;
+
+export default cartSlice.reducer;
+```
+
+4. Put the slice into the store (provided in step 1)
