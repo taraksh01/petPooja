@@ -5,16 +5,23 @@ import RestaurantMenuDetails from "./components/RestaurantMenuDetails";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
+import UserContext from "./utils/UserContext";
 
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
 const App = () => {
+  const [user, setUser] = useState({
+    name: "Real User",
+    email: "real@example.com",
+  });
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ user }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };
