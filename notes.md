@@ -536,3 +536,5 @@ export default cartSlice.reducer;
 ```
 
 4. Put the slice into the store (provided in step 1)
+
+Now we can subscribe to any slice and then our app will be updated accordingly and immediately with all the reconciliation.
