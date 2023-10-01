@@ -19,6 +19,9 @@ const RestaurantMenuDetails = () => {
     feeDetails,
   } = restaurantDetails[0].card?.card?.info;
 
+  const offers =
+    restaurantDetails[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+
   return (
     <main className="flex flex-col items-center">
       <div className="w-5/12 m-4 flex flex-col borde p-4 font-light text-gray-600 text-sm">
@@ -37,6 +40,16 @@ const RestaurantMenuDetails = () => {
         <p className="text-gray-700 font-semibold text-base">
           {costForTwoMessage}
         </p>
+      </div>
+      <div className="w-5/12 m-4 flex p-4 text-gray-700 overflow-x-scroll gap-4 scroll-m-0 no-scrollbar">
+        {offers.map((offer) => (
+          <div className="border min-w-64 rounded-lg border-gray-400 flex-shrink-0 flex flex-col justify-center items-center p-4">
+            <div className="text-lg font-medium">{offer?.info?.header}</div>
+            <div>
+              {offer.info.description} | {offer?.info?.couponCode}
+            </div>
+          </div>
+        ))}
       </div>
     </main>
   );
