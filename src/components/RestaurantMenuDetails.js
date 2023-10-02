@@ -54,6 +54,26 @@ const RestaurantMenuDetails = () => {
           </div>
         ))}
       </div>
+      <div className="w-5/12 m-4">
+        {restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+          .filter(
+            (res, index) =>
+              index > 0 &&
+              index <
+                restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+                  ?.length -
+                  2
+          )
+          .map((res, index) => (
+            <div
+              key={res?.card?.card?.id}
+              className="text-xl font-medium shadow-lg m-2 p-2 shadow-gray-300 flex justify-between"
+            >
+              <div>{res?.card?.card?.title}</div>
+              <div className="cursor-pointer">{"🔽"}</div>
+            </div>
+          ))}
+      </div>
     </main>
   );
 };
