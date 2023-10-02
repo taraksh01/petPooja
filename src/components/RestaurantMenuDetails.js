@@ -43,7 +43,10 @@ const RestaurantMenuDetails = () => {
       </div>
       <div className="w-5/12 m-4 flex p-4 text-gray-700 overflow-x-scroll gap-4 scroll-m-0 no-scrollbar">
         {offers.map((offer) => (
-          <div className="border min-w-64 rounded-lg border-gray-400 flex-shrink-0 flex flex-col justify-center items-center p-4">
+          <div
+            key={offer?.info?.id}
+            className="border min-w-64 rounded-lg border-gray-400 flex-shrink-0 flex flex-col justify-center items-center p-4"
+          >
             <div className="text-lg font-medium">{offer?.info?.header}</div>
             <div>
               {offer.info.description} | {offer?.info?.couponCode}
