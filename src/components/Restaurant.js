@@ -13,10 +13,10 @@ const Restaurant = ({ info }) => {
         />
       </div>
       <div className="pl-2">
-        <h2 className="text-lg py-1 font-normal">{name}</h2>
+        <h2 className="text-lg py-1">{name}</h2>
         <p className="font-light text-gray-600">{avgRatingString}</p>
         <p className="font-light text-gray-600">{cuisines.join(", ")}</p>
-        <p className="font-light text-gray-600">{costForTwo}</p>
+        <p className="text-gray-800">{costForTwo}</p>
       </div>
     </div>
   );
