@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 
 const Header = ({}) => {
   const { user } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
 
   const cartItem = useSelector((store) => store.cart.items);
-  console.log(cartItem);
+  // console.log(cartItem);
 
   return (
     <header className="flex justify-between items-center bg-gray-300 p-2">
