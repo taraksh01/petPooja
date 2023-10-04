@@ -65,12 +65,26 @@ const RestaurantMenuDetails = () => {
                   2
           )
           .map((res, index) => (
-            <div
-              key={res?.card?.card?.id}
-              className="text-xl font-medium shadow-lg m-2 p-2 shadow-gray-300 flex justify-between"
-            >
-              <div>{res?.card?.card?.title}</div>
-              <div className="cursor-pointer">{"🔽"}</div>
+            <div key={index} className="m-2 p-2 shadow-lg shadow-gray-300">
+              {/* {console.log(res)} */}
+              <div className="text-xl font-medium flex justify-between items-center py-2">
+                <div>{res?.card?.card?.title}</div>
+                <div className="cursor-pointer">{"🔽"}</div>
+              </div>
+              <div>
+                {res?.card?.card?.itemCards?.map((r) => (
+                  <div className="p-2 leading-6 text-gray-800">
+                    <div className="font-medium">{r?.card?.info?.name}</div>
+                    <div className="font-medium">
+                      Price: &#8377;{r?.card?.info?.price / 100}
+                    </div>
+                    <div className="font-light text-sm">
+                      {r?.card?.info?.description}
+                    </div>
+                    {/* <div className="">{r?.card?.info?.inStock}</div> */}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
       </div>
