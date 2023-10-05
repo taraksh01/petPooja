@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenuDetails from "../utils/useRestaurantMenuDetails";
+import { RESTAURANT_IMAGE_URL } from "../constants";
 
 const RestaurantMenuDetails = () => {
   const { id } = useParams();
@@ -73,15 +74,23 @@ const RestaurantMenuDetails = () => {
               </div>
               <div>
                 {res?.card?.card?.itemCards?.map((r) => (
-                  <div className="p-2 leading-6 text-gray-800">
-                    <div className="font-medium">{r?.card?.info?.name}</div>
-                    <div className="font-medium">
-                      Price: &#8377;{r?.card?.info?.price / 100}
+                  <div className="p-2 leading-6 text-gray-800 flex justify-between items-center gap-12">
+                    <div className="w-11/12">
+                      <div className="font-medium">{r?.card?.info?.name}</div>
+                      <div className="font-medium">
+                        Price: &#8377;{r?.card?.info?.price / 100}
+                      </div>
+                      <div className="font-light text-sm">
+                        {r?.card?.info?.description}
+                      </div>
                     </div>
-                    <div className="font-light text-sm">
-                      {r?.card?.info?.description}
+                    <div className="w-80 h-40 flex justify-between items-center p-4">
+                      <img
+                        className="rounded-2xl"
+                        src={RESTAURANT_IMAGE_URL + r?.card?.info?.imageId}
+                        alt={r?.card?.info?.name + " image"}
+                      />
                     </div>
-                    {/* <div className="">{r?.card?.info?.inStock}</div> */}
                   </div>
                 ))}
               </div>
