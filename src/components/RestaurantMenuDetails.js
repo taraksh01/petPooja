@@ -84,9 +84,9 @@ const RestaurantMenuDetails = () => {
                         {r?.card?.info?.description}
                       </div>
                     </div>
-                    <div className="w-80 h-40 flex justify-between items-center p-4">
+                    <div className="w-60 h-32 flex justify-between items-center m-4 py-4">
                       <img
-                        className="rounded-2xl"
+                        className="rounded-2xl w-60 h-32"
                         src={RESTAURANT_IMAGE_URL + r?.card?.info?.imageId}
                         alt={r?.card?.info?.name + " image"}
                       />
