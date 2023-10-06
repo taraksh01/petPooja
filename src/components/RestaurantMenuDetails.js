@@ -84,12 +84,15 @@ const RestaurantMenuDetails = () => {
                         {r?.card?.info?.description}
                       </div>
                     </div>
-                    <div className="w-60 h-32 flex justify-between items-center m-4 py-4">
+                    <div className="w-60 h-32 flex justify-center items-center m-4 py-4">
                       <img
                         className="rounded-2xl w-60 h-32"
                         src={RESTAURANT_IMAGE_URL + r?.card?.info?.imageId}
                         alt={r?.card?.info?.name + " image"}
                       />
+                      <div className="absolute bg-white opacity-80 cursor-pointer self-end px-4 font-semibold rounded-md">
+                        ADD +
+                      </div>
                     </div>
                   </div>
                 ))}
