@@ -90,7 +90,10 @@ const RestaurantMenuDetails = () => {
                         src={RESTAURANT_IMAGE_URL + r?.card?.info?.imageId}
                         alt={r?.card?.info?.name + " image"}
                       />
-                      <div className="absolute bg-white opacity-80 cursor-pointer self-end px-4 font-semibold rounded-md">
+                      <div
+                        className="absolute bg-white opacity-80 cursor-pointer self-end px-4 font-semibold rounded-md"
+                        onClick={() => console.log("clicked")}
+                      >
                         ADD +
                       </div>
                     </div>
