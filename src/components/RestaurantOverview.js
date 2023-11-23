@@ -2,29 +2,47 @@ import RestaurantList from "./RestaurantList";
 import ShimmerRestaurantList from "./ShimmerRestaurantList";
 import Search from "./Search";
 import { useEffect, useState } from "react";
-import { SWIGGY_RESTAURANT_API_URL } from "../constants";
+import {
+  SWIGGY_RESTAURANT_API_MOBILE_URL,
+  SWIGGY_RESTAURANT_API_URL,
+} from "../constants";
 import useOnline from "../utils/useOnline";
 
 const RestaurantOverview = () => {
+  const [mobile, setMobile] = useState(navigator.userAgent.includes("Mobile"));
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
     fetchRestaurants();
-  }, []);
+  }, [mobile]);
 
   const fetchRestaurants = async () => {
-    const data = await fetch(SWIGGY_RESTAURANT_API_URL);
-    const json = await data?.json();
+    if (mobile) {
+      const data = await fetch(SWIGGY_RESTAURANT_API_MOBILE_URL);
+      const json = await data?.json();
+      setAllRestaurants(
+        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurants(
+        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } else {
+      const data = await fetch(SWIGGY_RESTAURANT_API_URL);
+      const json = await data?.json();
 
-    setAllRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      setAllRestaurants();
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
 
-    setFilteredRestaurants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      setFilteredRestaurants(
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    }
   };
 
   const handleSearch = (newSearchText) => {
