@@ -9,40 +9,28 @@ import {
 import useOnline from "../utils/useOnline";
 
 const RestaurantOverview = () => {
-  const [mobile, setMobile] = useState(navigator.userAgent.includes("Mobile"));
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
     fetchRestaurants();
-  }, [mobile]);
+  }, []);
 
   const fetchRestaurants = async () => {
-    if (mobile) {
-      const data = await fetch(SWIGGY_RESTAURANT_API_MOBILE_URL);
-      const json = await data?.json();
-      setAllRestaurants(
-        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-      setFilteredRestaurants(
-        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-    } else {
-      const data = await fetch(SWIGGY_RESTAURANT_API_URL);
-      const json = await data?.json();
+    const data = await fetch(
+      `https://api.allorigins.win/get?url=${encodeURIComponent(
+        SWIGGY_RESTAURANT_API_URL
+      )}`
+    );
+    const res = await data?.json();
+    const json = JSON.parse(res.contents);
+    setAllRestaurants();
+    json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-      setAllRestaurants();
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-
-      setFilteredRestaurants(
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-    }
+    setFilteredRestaurants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   const handleSearch = (newSearchText) => {
@@ -60,7 +48,7 @@ const RestaurantOverview = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-5 bg-green-300">
       <Search
         searchText={searchText}
         handleSearch={handleSearch}
