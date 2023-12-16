@@ -9,9 +9,13 @@ const useRestaurantMenuDetails = (id) => {
   }, []);
 
   const fetchRestaurantDetails = async () => {
-    const data = await fetch(SWIGGY_RESTAURANT_Details_URL + id);
-    const json = await data?.json();
-    console.log(json?.data?.cards);
+    const data = await fetch(
+      `https://api.allorigins.win/get?url=${encodeURIComponent(
+        SWIGGY_RESTAURANT_Details_URL + id
+      )}`
+    );
+    const res = await data?.json();
+    const json = JSON.parse(res.contents);
     setRestaurantDetails(json?.data?.cards);
   };
 
