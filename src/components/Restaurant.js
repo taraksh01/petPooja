@@ -1,10 +1,10 @@
 import { RESTAURANT_IMAGE_URL } from "../constants";
 
 const Restaurant = ({ info }) => {
-  const { name, avgRatingString, costForTwo, cuisines, cloudinaryImageId } =
-    info;
+  const { name, avgRatingString, cuisines, sla, cloudinaryImageId } = info;
+
   return (
-    <div className="w-full bg-gray-50 rounded-2xl cursor-pointer flex flex-col hover:bg-gray-200">
+    <div className="w-full bg-gray-100 rounded-2xl cursor-pointer grid grid-rows-1 grid-cols-1 transition-all duration-500 hover:bg-gray-200 hover:scale-105">
       <div className="object-cover w-full h-52">
         <img
           src={RESTAURANT_IMAGE_URL + cloudinaryImageId}
@@ -12,11 +12,13 @@ const Restaurant = ({ info }) => {
           className="w-full rounded-2xl p-0 h-full"
         />
       </div>
-      <div className="pl-2">
-        <h2 className="text-lg py-1">{name}</h2>
-        <p className="font-light text-gray-600">{avgRatingString}</p>
-        <p className="font-light text-gray-600">{cuisines.join(", ")}</p>
-        <p className="text-gray-800">{costForTwo}</p>
+      <div className="p-2 text-gray-800">
+        <h2 className="text-lg leading-none font-semibold">{name}</h2>
+        <p className="font-semibold flex items-center gap-1">
+          {avgRatingString}
+          <span className="text-green-700">✪</span> {sla?.slaString}
+        </p>
+        <p className="text-sm">{cuisines.join(", ")}</p>
       </div>
     </div>
   );
