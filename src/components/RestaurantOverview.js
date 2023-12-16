@@ -25,8 +25,9 @@ const RestaurantOverview = () => {
     );
     const res = await data?.json();
     const json = JSON.parse(res.contents);
-    setAllRestaurants();
-    json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setAllRestaurants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
 
     setFilteredRestaurants(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
