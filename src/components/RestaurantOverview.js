@@ -48,7 +48,7 @@ const RestaurantOverview = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-5 bg-green-300">
+    <div className="flex flex-col items-center gap-5">
       <Search
         searchText={searchText}
         handleSearch={handleSearch}
