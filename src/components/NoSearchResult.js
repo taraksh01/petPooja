@@ -1,7 +1,7 @@
 const NoSearchResult = () => {
   return (
     <h2 className="flex justify-center items-center text-4xl">
-      Try searching for something else
+      No restaurants with this name found. Try searching other restaurant.
     </h2>
   );
 };
