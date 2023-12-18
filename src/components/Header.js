@@ -1,13 +1,7 @@
-import { useContext } from "react";
-import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = ({}) => {
-  const { user } = useContext(UserContext);
-  // console.log(user);
-
   const cartItem = useSelector((store) => store.cart.items);
-  // console.log(cartItem);
 
   return (
     <header className="flex justify-between items-center bg-gray-300 p-2">
@@ -21,7 +15,7 @@ const Header = ({}) => {
           </span>
         </p>
       </nav>
-      <div className="text-xl text-red-600">{user.name}</div>
+      {/* <div className="text-xl text-red-600">{user.name}</div> */}
     </header>
   );
 };
