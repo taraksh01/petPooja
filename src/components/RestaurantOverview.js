@@ -1,14 +1,19 @@
-import RestaurantList from "./RestaurantList";
-import ShimmerRestaurantList from "./ShimmerRestaurantList";
-import Search from "./Search";
 import { useEffect, useState } from "react";
+import {
+  RestaurantList,
+  ShimmerRestaurantList,
+  InitialLocation,
+  Search,
+} from "./exportComponent";
 import {
   SWIGGY_RESTAURANT_API_MOBILE_URL,
   SWIGGY_RESTAURANT_API_URL,
 } from "../constants";
 import useOnline from "../utils/useOnline";
+import { useSelector } from "react-redux";
 
 const RestaurantOverview = () => {
+  const userLocation = useSelector((store) => store?.location?.details);
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -39,6 +44,10 @@ const RestaurantOverview = () => {
   };
 
   const isOnline = useOnline();
+
+  if (userLocation === null) {
+    return <InitialLocation />;
+  }
 
   if (!isOnline) {
     return (
