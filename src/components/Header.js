@@ -7,9 +7,9 @@ const Header = ({}) => {
   const cartItem = useSelector((store) => store.cart.items);
   const [hideInputBox, setHideInputBox] = useState(true);
   const location = useSelector((store) => store?.location?.details);
-  if (location?.place_id) {
-    fetchRestaurants();
-  }
+
+  fetchRestaurants();
+
   return (
     <header className="flex justify-between items-center bg-gray-900 text-white p-2">
       <h1 className="text-3xl font-medium text-orange-400">PetPooja</h1>
