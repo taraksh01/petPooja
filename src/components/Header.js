@@ -5,8 +5,8 @@ import { useState } from "react";
 
 const Header = ({}) => {
   const cartItem = useSelector((store) => store.cart.items);
-  const [hideInputBox, setHideInputBox] = useState(true);
   const location = useSelector((store) => store?.location?.details);
+  const [hideInputBox, setHideInputBox] = useState(location ? true : false);
 
   fetchRestaurants();
 
