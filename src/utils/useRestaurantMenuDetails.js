@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
-import { SWIGGY_RESTAURANT_Details_URL } from "../constants";
+import { useSelector } from "react-redux";
+import { json } from "react-router-dom";
 
 const useRestaurantMenuDetails = (id) => {
   const [restaurantDetails, setRestaurantDetails] = useState([]);
+  const location = useSelector((state) => state.location.details);
+  const api = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${location?.lat}&lng=${location?.lon}&restaurantId=${id}`;
 
   useEffect(() => {
     fetchRestaurantDetails();
   }, []);
 
-  const fetchRestaurantDetails = async () => {
-    const data = await fetch(
-      `https://api.allorigins.win/get?url=${encodeURIComponent(
-        SWIGGY_RESTAURANT_Details_URL + id
-      )}`
-    );
-    const res = await data?.json();
-    const json = JSON.parse(res.contents);
-    setRestaurantDetails(json?.data?.cards);
+  const fetchRestaurantDetails = () => {
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`)
+      .then((data) => data.json())
+      .then((res) => JSON.parse(res.contents))
+      .then((json) => {
+        setRestaurantDetails(json?.data?.cards);
+      });
   };
 
   return restaurantDetails;
