@@ -49,6 +49,7 @@ const fetchRestaurants = () => {
             );
             break;
           case "restaurant_grid_listing":
+            dispatch(setAvailable(true));
             dispatch(
               setRestaurants(
                 item?.card?.card?.gridElements?.infoWithStyle?.restaurants
