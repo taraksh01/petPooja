@@ -17,7 +17,7 @@ const fetchRestaurants = () => {
   const dispatch = useDispatch();
 
   const api = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location?.lat}&lng=${location?.lon}`;
-  console.log(`%c${location.display_name}`, "color: yellow");
+  // console.log(`%c${location.display_name}`, "color: yellow");
 
   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`)
     .then((data) => data.json())
@@ -25,7 +25,6 @@ const fetchRestaurants = () => {
     .then((json) => {
       dispatch(setOffset(json?.data?.pageOffset?.nextOffset));
       json?.data?.cards?.map((item, index) => {
-        console.log(item.card.card.id, index);
         switch (item?.card?.card?.id) {
           case "swiggy_not_present":
             dispatch(setAvailable(false));
