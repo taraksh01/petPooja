@@ -16,13 +16,16 @@ const Header = ({}) => {
       {hideInputBox ? (
         <div>
           <h2
-            className="text-xl sm:text-2xl"
+            className="flex justify-center items-center text-xl sm:text-2xl"
             onClick={() => setHideInputBox(!hideInputBox)}
           >
             <span className="font-semibold underline cursor-pointer px-2">
               Other
             </span>
-            {location?.display_name}
+            <span className="sm:hidden">
+              {location?.display_name.split(",")[0]}
+            </span>
+            <span className="hidden sm:flex">{location?.display_name}</span>
           </h2>
         </div>
       ) : (
