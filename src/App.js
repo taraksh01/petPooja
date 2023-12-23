@@ -6,7 +6,8 @@ import { locationDetails } from "./Store/locationSlice";
 const App = () => {
   const userLocation = localStorage.getItem("userLocation");
   const dispatch = useDispatch();
-  userLocation && dispatch(locationDetails(JSON.parse(userLocation)));
+  userLocation !== "Error" &&
+    dispatch(locationDetails(JSON.parse(userLocation)));
   return (
     <>
       <Header />
