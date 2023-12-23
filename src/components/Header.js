@@ -12,21 +12,24 @@ const Header = ({}) => {
 
   return (
     <header className="flex justify-between items-center bg-gray-900 text-white p-2">
-      <h1 className="text-3xl font-medium text-orange-400">PetPooja</h1>
+      <h1 className="text-3xl hidden sm:flex font-medium text-orange-400">
+        PetPooja
+      </h1>
       {hideInputBox ? (
         <div>
-          <h2
+          <p
             className="flex justify-center items-center text-xl sm:text-2xl"
             onClick={() => setHideInputBox(!hideInputBox)}
           >
             <span className="font-semibold underline cursor-pointer px-2">
               Other
             </span>
+            {location === "Error" && "Try Other location"}
             <span className="sm:hidden">
-              {location?.display_name.split(",")[0]}
+              {location?.display_name?.split(",")[0]}
             </span>
             <span className="hidden sm:flex">{location?.display_name}</span>
-          </h2>
+          </p>
         </div>
       ) : (
         <Location
