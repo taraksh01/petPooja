@@ -8,7 +8,7 @@ const RestaurantList = ({ restaurants }) => {
       {restaurants?.length == 0 ? (
         <NoSearchResult />
       ) : (
-        <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 m-2 w-5/6 sm:w-3/4 mx-auto">
+        <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 m-2 w-full">
           {restaurants?.map((res) => (
             <Link
               to={"/restaurant/" + res?.info?.id}
