@@ -13,6 +13,7 @@ const RestaurantOverview = () => {
   const userLocation = useSelector((store) => store?.location?.details);
   const isAvailable = useSelector((store) => store?.restaurants?.available);
   const banner = useSelector((store) => store?.restaurants?.banner);
+  const whatsOnMind = useSelector((store) => store?.restaurants?.whatsOnMind);
   const allRestaurants = useSelector(
     (store) => store?.restaurants?.restaurants
   );
@@ -70,6 +71,21 @@ const RestaurantOverview = () => {
                     alt={item?.imageId}
                   />
                 </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+      {whatsOnMind?.length > 0 && (
+        <div className="m-2 shadow-md">
+          <h2 className="text-2xl font-bold">Whats on your mind ?</h2>
+          <div className="flex overflow-auto no-scrollbar">
+            {whatsOnMind?.map((item) => (
+              <Link to={``} key={item?.entityId} className="min-w-fit">
+                <img
+                  src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_150/${item?.imageId}`}
+                  alt={item?.imageId}
+                />
               </Link>
             ))}
           </div>
