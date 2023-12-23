@@ -5,9 +5,9 @@ const Restaurant = ({ info }) => {
 
   return (
     <div className="w-full bg-gray-100 rounded-2xl cursor-pointer grid grid-rows-1 grid-cols-1 transition-all duration-500 hover:bg-gray-200 hover:scale-105">
-      <div className="object-cover w-full h-52">
+      <div className="object-cover w-full h-full">
         <img
-          src={RESTAURANT_IMAGE_URL + cloudinaryImageId}
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660,h_420/${cloudinaryImageId}`}
           alt="restaurant image"
           className="w-full rounded-2xl p-0 h-full"
         />
