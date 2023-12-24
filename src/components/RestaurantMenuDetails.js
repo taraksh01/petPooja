@@ -25,7 +25,7 @@ const RestaurantMenuDetails = () => {
 
   return (
     <main className="flex flex-col items-center">
-      <div className="w-5/12 m-4 flex flex-col borde p-4 font-light text-gray-600 text-sm">
+      <div className="w-full max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-3xl flex flex-col borde p-4 font-light text-gray-600 text-sm">
         <div className="flex justify-between items-center ">
           <div>
             <h2 className="font-medium text-xl text-gray-700">{name}</h2>
@@ -42,7 +42,7 @@ const RestaurantMenuDetails = () => {
           {costForTwoMessage}
         </p>
       </div>
-      <div className="w-5/12 m-4 flex p-4 text-gray-700 overflow-x-scroll gap-4 scroll-m-0 no-scrollbar">
+      <div className="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-3xl flex p-4 text-gray-700 overflow-auto gap-4 no-scrollbar">
         {offers.map((offer, index) => (
           <div
             key={index}
@@ -55,7 +55,7 @@ const RestaurantMenuDetails = () => {
           </div>
         ))}
       </div>
-      <div className="w-5/12 m-4">
+      <div className="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-3xl">
         {restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
           .filter(
             (res, index) =>
