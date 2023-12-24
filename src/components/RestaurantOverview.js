@@ -20,10 +20,16 @@ const RestaurantOverview = () => {
   const allRestaurants = useSelector(
     (store) => store?.restaurants?.restaurants
   );
-  const isOnline = useOnline();
-
+  const bestRestaurantsPlaces = useSelector(
+    (store) => store?.restaurants?.bestRestaurantsPlaces
+  );
+  const bestCuisines = useSelector((store) => store?.restaurants?.bestCuisines);
+  const exploreRestaurants = useSelector(
+    (store) => store?.restaurants?.exploreRestaurants
+  );
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const isOnline = useOnline();
 
   useEffect(() => {
     setFilteredRestaurants(allRestaurants);
@@ -116,6 +122,56 @@ const RestaurantOverview = () => {
             allRestaurants={allRestaurants}
           />
           <RestaurantList restaurants={allRestaurants} />
+        </div>
+      )}
+      {bestRestaurantsPlaces?.length > 0 && (
+        <div className="m-2">
+          <h2 className="text-2xl font-bold">
+            Best Places to Eat Across Cities
+          </h2>
+          <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full">
+            {bestRestaurantsPlaces?.map((item) => (
+              <Link
+                to={``}
+                key={item?.text}
+                className="p-3 text-center rounded-xl border"
+              >
+                <p className="font-medium">{item?.text}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+      {bestCuisines?.length > 0 && (
+        <div className="m-2">
+          <h2 className="text-2xl font-bold">Best Cuisines</h2>
+          <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full">
+            {bestCuisines?.map((item) => (
+              <Link
+                to={``}
+                key={item?.text}
+                className="p-3 text-center rounded-xl border"
+              >
+                <p className="font-medium">{item?.text}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+      {exploreRestaurants?.length > 0 && (
+        <div className="m-2">
+          <h2 className="text-2xl font-bold">Explore Restaurants</h2>
+          <div className="grid grid-rows-1 grid-cols-1 md:grid-cols-2 justify-evenly gap-5 my-2 w-full">
+            {exploreRestaurants?.map((item) => (
+              <Link
+                to={``}
+                key={item?.text}
+                className="p-3 text-center rounded-xl border"
+              >
+                <p className="font-medium">{item?.text}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
