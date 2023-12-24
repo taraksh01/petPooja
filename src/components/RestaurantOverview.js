@@ -36,6 +36,7 @@ const RestaurantOverview = () => {
   }, [allRestaurants]);
 
   const handleSearch = (newSearchText) => {
+    console.log(newSearchText, filteredRestaurants);
     setSearchText(newSearchText);
   };
 
@@ -109,7 +110,7 @@ const RestaurantOverview = () => {
         </div>
       )}
       {allRestaurants?.length > 0 && (
-        <div className="m-2 shadow-md">
+        <div className="my-2">
           <h2 className="text-2xl font-bold">
             Restaurants with online food delivery in{" "}
             {userLocation?.display_name?.split(",")[0]}
@@ -121,7 +122,7 @@ const RestaurantOverview = () => {
             setFilteredRestaurants={setFilteredRestaurants}
             allRestaurants={allRestaurants}
           />
-          <RestaurantList restaurants={allRestaurants} />
+          <RestaurantList restaurants={filteredRestaurants} />
         </div>
       )}
       {bestRestaurantsPlaces?.length > 0 && (
