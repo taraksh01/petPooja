@@ -102,17 +102,21 @@ const RestaurantOverview = () => {
           <RestaurantList top={true} restaurants={topRestaurants} />
         </div>
       )}
-      <Search
-        searchText={searchText}
-        handleSearch={handleSearch}
-        filteredRestaurants={filteredRestaurants}
-        setFilteredRestaurants={setFilteredRestaurants}
-        allRestaurants={allRestaurants}
-      />
-      {allRestaurants?.length == 0 ? (
-        <ShimmerRestaurantList />
-      ) : (
-        <RestaurantList restaurants={filteredRestaurants} />
+      {allRestaurants?.length > 0 && (
+        <div className="m-2 shadow-md">
+          <h2 className="text-2xl font-bold">
+            Restaurants with online food delivery in{" "}
+            {userLocation?.display_name?.split(",")[0]}
+          </h2>
+          <Search
+            searchText={searchText}
+            handleSearch={handleSearch}
+            filteredRestaurants={filteredRestaurants}
+            setFilteredRestaurants={setFilteredRestaurants}
+            allRestaurants={allRestaurants}
+          />
+          <RestaurantList restaurants={allRestaurants} />
+        </div>
       )}
     </div>
   );
