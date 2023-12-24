@@ -11,8 +11,8 @@ const RestaurantList = ({ top, restaurants }) => {
         <div
           className={`${
             top
-              ? `flex gap-5 overflow-auto no-scrollbar my-2`
-              : `grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 m-2 w-full`
+              ? `flex gap-5 overflow-auto no-scrollbar p-3 my-2`
+              : `grid grid-rows-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full`
           }`}
         >
           {restaurants?.map((res) => (
