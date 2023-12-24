@@ -14,6 +14,9 @@ const RestaurantOverview = () => {
   const isAvailable = useSelector((store) => store?.restaurants?.available);
   const banner = useSelector((store) => store?.restaurants?.banner);
   const whatsOnMind = useSelector((store) => store?.restaurants?.whatsOnMind);
+  const topRestaurants = useSelector(
+    (state) => state?.restaurants?.topRestaurants
+  );
   const allRestaurants = useSelector(
     (store) => store?.restaurants?.restaurants
   );
@@ -89,6 +92,14 @@ const RestaurantOverview = () => {
               </Link>
             ))}
           </div>
+        </div>
+      )}
+      {topRestaurants?.length > 0 && (
+        <div className="m-2 shadow-md">
+          <h2 className="text-2xl font-bold">
+            Top Restaurants in {userLocation?.display_name?.split(",")[0]}
+          </h2>
+          <RestaurantList top={true} restaurants={topRestaurants} />
         </div>
       )}
       <Search
