@@ -110,7 +110,7 @@ const RestaurantOverview = () => {
         </div>
       )}
       {allRestaurants?.length > 0 && (
-        <div className="my-2">
+        <div className="m-2">
           <h2 className="text-2xl font-bold">
             Restaurants with online food delivery in{" "}
             {userLocation?.display_name?.split(",")[0]}
