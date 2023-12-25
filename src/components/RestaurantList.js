@@ -12,7 +12,7 @@ const RestaurantList = ({ top, restaurants }) => {
           className={`${
             top
               ? `flex gap-5 overflow-auto no-scrollbar p-3 my-2`
-              : `grid grid-rows-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full`
+              : `grid grid-rows-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-5 my-2 w-full`
           }`}
         >
           {restaurants?.map((res) => (
