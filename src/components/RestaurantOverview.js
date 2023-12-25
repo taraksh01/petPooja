@@ -127,7 +127,7 @@ const RestaurantOverview = () => {
       )}
       {bestRestaurantsPlaces?.length > 0 && (
         <div className="m-2">
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold text-center lg:text-left">
             Best Places to Eat Across Cities
           </h2>
           <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full">
@@ -145,7 +145,9 @@ const RestaurantOverview = () => {
       )}
       {bestCuisines?.length > 0 && (
         <div className="m-2">
-          <h2 className="text-2xl font-bold">Best Cuisines</h2>
+          <h2 className="text-2xl font-bold text-center lg:text-left">
+            Best Cuisines
+          </h2>
           <div className="grid grid-rows-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-evenly gap-5 my-2 w-full">
             {bestCuisines?.map((item) => (
               <Link
@@ -161,7 +163,9 @@ const RestaurantOverview = () => {
       )}
       {exploreRestaurants?.length > 0 && (
         <div className="m-2">
-          <h2 className="text-2xl font-bold">Explore Restaurants</h2>
+          <h2 className="text-2xl font-bold text-center lg:text-left">
+            Explore Restaurants
+          </h2>
           <div className="grid grid-rows-1 grid-cols-1 md:grid-cols-2 justify-evenly gap-5 my-2 w-full">
             {exploreRestaurants?.map((item) => (
               <Link
