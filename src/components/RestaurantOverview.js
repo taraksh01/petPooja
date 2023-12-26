@@ -69,6 +69,7 @@ const RestaurantOverview = () => {
 
   return (
     <div className="flex flex-col md:w-5/6 lg:w-3/4 mx-auto">
+      {allRestaurants?.length === 0 && <ShimmerRestaurantList />}
       {banner?.length > 0 && (
         <div className="m-2">
           <h2 className="text-2xl font-bold">Best offers</h2>
