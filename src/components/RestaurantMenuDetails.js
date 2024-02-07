@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenuDetails from "../utils/useRestaurantMenuDetails";
 import { RESTAURANT_IMAGE_URL } from "../constants";
+import { addItems } from "../Store/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenuDetails = () => {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
 
   const restaurantDetails = useRestaurantMenuDetails(id);
 
@@ -94,7 +98,9 @@ const RestaurantMenuDetails = () => {
                       />
                       <div
                         className="absolute bg-white opacity-80 cursor-pointer self-end px-4 font-semibold rounded-md"
-                        onClick={() => console.log("clicked")}
+                        onClick={() => {
+                          dispatch(addItems(r));
+                        }}
                       >
                         ADD
                       </div>
